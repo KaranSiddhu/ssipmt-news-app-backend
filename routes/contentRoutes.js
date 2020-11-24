@@ -27,7 +27,18 @@ router.post('/news', async (req, res) => {
 });
 
 router.get('/news', (req, res) => {
-    Content.find({} ,(err, result) => {
+    // Content.find({} ,(err, result) => {
+    //     if(err){
+    //         res.status(404).json({
+    //             status:'fail',
+    //             message:err
+    //         });
+    //     }else{
+    //         res.status(200).send(result);
+    //     }
+    // });
+
+    Content.find({}).sort({date: 'desc'}).exec((err, result) => { 
         if(err){
             res.status(404).json({
                 status:'fail',
@@ -36,7 +47,8 @@ router.get('/news', (req, res) => {
         }else{
             res.status(200).send(result);
         }
-    });
+     });
+
 });
 
 router.delete('/news/:id', (req, res) => {
@@ -54,7 +66,5 @@ router.delete('/news/:id', (req, res) => {
         }
     })
 });
-
-
 
 module.exports = router;
