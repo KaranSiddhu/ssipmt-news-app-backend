@@ -12,6 +12,10 @@ const contentSchema = new mongoose.Schema({
     date:{
         type:String,
         required:true
+    },
+    currentdate:{
+        type:Date,
+        default:Date.now
     }
 });
 

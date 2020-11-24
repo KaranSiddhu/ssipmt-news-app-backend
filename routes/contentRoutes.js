@@ -4,8 +4,6 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const Content = mongoose.model('Content');
 
-
-
 router.post('/news', async (req, res) => {
     const { title, description, date } = req.body;
     try{
@@ -41,7 +39,7 @@ router.get('/news', (req, res) => {
     //     }
     // });
 
-    Content.find({}).sort({date: 'desc'}).exec((err, result) => { 
+    Content.find({}).sort({currentdate: 'desc'}).exec((err, result) => { 
         if(err){
             res.status(404).json({
                 status:'fail',
