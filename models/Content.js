@@ -1,8 +1,5 @@
 const mongoose = require('mongoose');
 
-const moment = require('moment-timezone');
-const dateIndia = moment.tz(Date.now(), "Asia/Kolkata");
-
 const contentSchema = new mongoose.Schema({
     title:{
         type:String,
@@ -13,8 +10,8 @@ const contentSchema = new mongoose.Schema({
         required:true
     },
     date:{
-        type:Date,
-        default:Date.now
+        type:String,
+        required:true
     }
 });
 

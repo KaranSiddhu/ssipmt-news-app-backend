@@ -4,17 +4,20 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const Content = mongoose.model('Content');
 
+
+
 router.post('/news', async (req, res) => {
-    const { title, description } = req.body;
+    const { title, description, date } = req.body;
     try{
-        const content = new Content({title, description});
+        const content = new Content({title, description, date});
         await content.save();
 
         res.status(200).json({
             status:'success',
             data:{
                 title,
-                description
+                description,
+                date
             }
         });
 
