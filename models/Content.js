@@ -14,7 +14,7 @@ const contentSchema = new mongoose.Schema({
     },
     date:{
         type:Date,
-        default:dateIndia
+        default:Date.now
     }
 });
 
