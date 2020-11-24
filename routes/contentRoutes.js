@@ -47,7 +47,7 @@ router.get('/news', (req, res) => {
         }else{
             res.status(200).send(result);
         }
-     });
+    });
 
 });
 
