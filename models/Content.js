@@ -1,18 +1,9 @@
 const mongoose = require('mongoose');
 
-const istfun = () => {
-    var date = new Date().getDate();
-    var month = new Date().getMonth() + 1;
-    var year = new Date().getFullYear();
-
-
-    return date + '-' + month + '-' + year;//format: dd-mm-yyyy;
-}
-
 const contentSchema = new mongoose.Schema({
     title:{
         type:String,
-        required:true
+        required:true,
     },
     description:{
         type:String,
@@ -20,12 +11,13 @@ const contentSchema = new mongoose.Schema({
     },
     date:{
         type:String,
-        required:true
+        default:function(){return new Date().toLocaleDateString()}
     },
     currentdate:{
         type:Date,
         default:Date.now
-    }
+    },
+    
 });
 
 contentSchema.pre('save', function(next){
