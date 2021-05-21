@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
+
 const { mogoUrl } = require('./keys.js');
 
 require('./models/Content.js');
@@ -11,7 +11,7 @@ require('./models/User.js');
 const authRoutes = require('./routes/authRoutes.js');
 const requireToken = require('./middleware/requireToken.js');
 
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(authRoutes);
 app.use(contentRoutes);
 
