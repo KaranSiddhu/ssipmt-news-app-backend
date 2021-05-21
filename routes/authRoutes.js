@@ -51,7 +51,6 @@ router.post('/signin', async (req, res) => {
             error:"Must enter Email and Password"
         });
     }
-
 });
 
 module.exports = router;
